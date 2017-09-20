@@ -55,12 +55,12 @@ BOOL isRegistered;
 
 - (void)errorRegistration {
     // can't do much, inform user to verify the UPS details entered and return
-    UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Registration Error!"
-                                                      message:@"Please verify the provisionioning profile and the UPS details have been setup correctly."
-                                                     delegate:nil
-                                            cancelButtonTitle:nil
-                                            otherButtonTitles:nil];
-    [message show];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Registration Error!" message:@"Please verify the provisionioning profile and the UPS details have been setup correctly." preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"OK"
+                                                        style:UIAlertActionStyleDefault
+                                                      handler:nil]];
+    [self presentViewController:alertController animated:YES
+                     completion:nil];
 }
 
 - (void)messageReceived:(NSNotification*)notification {
