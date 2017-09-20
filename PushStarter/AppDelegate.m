@@ -78,6 +78,8 @@
 
 // Callback called after failing to register with APNS
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
+    NSNotification *notification = [NSNotification notificationWithName:@"error_register" object:nil];
+    [[NSNotificationCenter defaultCenter] postNotification:notification];
     NSLog(@"Unified Push registration Error: %@", error);
 }
 
